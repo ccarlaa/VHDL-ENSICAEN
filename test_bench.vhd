@@ -33,14 +33,10 @@ begin
 
     process
     begin
-        u_rst <= '1';
         wait for 20 ns;
-        u_rst <= '0';
+        u_E <= '0';
         wait for 20 ns;
         u_E <= '1';
-        wait for 10 ns;
-        u_E <= '0';
-        wait;
     end process;
 
 end architecture;
