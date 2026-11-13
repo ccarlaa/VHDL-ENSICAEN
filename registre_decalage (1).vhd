@@ -4,12 +4,14 @@ use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
 entity registre_decalage is
-  Port (data_in: in STD_LOGIC_VECTOR (7 downto 0);
+  Port (
+  data_in: in STD_LOGIC_VECTOR (7 downto 0);
   clk: in STD_LOGIC;
   reset: in STD_LOGIC;
   E: in STD_LOGIC;
   l_s: in STD_LOGIC;
   sRo: out STD_LOGIC );
+  
 end registre_decalage;
 
 architecture Behavioral of registre_decalage is
@@ -30,10 +32,9 @@ begin
             else
                 registre <= '0' & registre (7 downto 1);
             end if;
+            sRo <= registre(0);
         end if;    
     end if; 
 end process;
-
-sRo <= registre(0);
 
 end Behavioral;
